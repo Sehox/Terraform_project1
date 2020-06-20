@@ -18,5 +18,5 @@ chmod +x terraform-provider-*
 mkdir -p /tmp/terraform_plugin/
 mv -f terraform /usr/local/bin
 mv -f terraform-provider-* /tmp/terraform_plugin/
-
+echo hello
 export PATH=$PATH:/usr/local/bin
