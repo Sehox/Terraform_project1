@@ -34,7 +34,7 @@ pipeline {
         		environment name: 'APPROVE_DEPLOY', value: "true"
 			}
 			steps {
-				sh "cd environments/${env.ENV} && terraform apply -auto-approve"
+				sh "cd training_terraform && terraform apply -auto-approve"
 			}
 		}
 	}
