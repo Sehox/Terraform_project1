@@ -24,9 +24,9 @@ pipeline {
             steps {
                 timeout(time: 7, unit: 'DAYS') {
                     script {
-                        env.APPROVE_DEPLOY = input(message: 'Approve deployment',
+                        env.APPROVE_DESTROY = input(message: 'Approve destroy',
                         parameters: [booleanParam(defaultValue: true,
-                        description: 'So you want to delete this?', name: 'Approved Deployment')])
+                        description: 'So you want to delete this?', name: 'Approved Destroy')])
                     }
                 }
             }
@@ -36,6 +36,9 @@ pipeline {
             when {
                 expression { params.DESTROY == true }
              }
+            when {
+                environment name: 'APPROVE_DESTROY', value: "true"
+            }
             steps {
                 sh "cd training_terraform && terraform destroy -auto-approve"
             }
