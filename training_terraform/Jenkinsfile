@@ -11,6 +11,7 @@ pipeline {
 		stage ('Preparation deploy Infra'){
 			when {
 				expression { params.DEPLOY == true }
+				expression { params.DESTROY == true }
 			}
 			steps {
 				sh "cd training_terraform && ls && terraform init -plugin-dir=/tmp/terraform_plugin && terraform plan"
@@ -19,8 +20,8 @@ pipeline {
         stage ('Destroy Infra'){
 
             when {
-                            expression { params.DESTROY == true }
-                        }
+                expression { params.DESTROY == true }
+             }
             steps {
                 sh "cd training_terraform && terraform destroy -auto-approve"
             }
