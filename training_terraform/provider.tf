@@ -14,6 +14,7 @@ resource "aws_subnet" "subnets" {
   count = length(var.azs)
   cidr_block = element(var.subnet_cidr,count.index )
   vpc_id = aws_vpc.main.id
+  depends_on = [aws_vpc.main]
   tags = {
     Name = "Subnet1"
 
