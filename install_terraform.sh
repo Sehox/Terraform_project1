@@ -16,7 +16,7 @@ rm *.zip -f
 chmod +x terraform
 chmod +x terraform-provider-*
 mkdir -p /tmp/terraform_plugin/
-mv -f terraform /usr/local/bin
-mv -f terraform-provider-* /tmp/terraform_plugin/
+sudo mv -f terraform /usr/local/bin
+sudo mv -f terraform-provider-* /tmp/terraform_plugin/
 
 export PATH=$PATH:/usr/local/bin

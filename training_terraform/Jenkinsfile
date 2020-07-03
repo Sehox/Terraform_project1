@@ -17,7 +17,7 @@ pipeline {
 				sh "cd training_terraform && ls && terraform init -plugin-dir=/tmp/terraform_plugin && terraform plan"
 			}
 		}
-		stage('Approve deployment') {
+		stage('Approve destroy') {
             when {
                 expression { params.DESTROY == true }
             }

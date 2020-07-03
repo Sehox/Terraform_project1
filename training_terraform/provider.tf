@@ -17,6 +17,15 @@ resource "aws_subnet" "subnets" {
   depends_on = [aws_vpc.main]
   tags = {
     Name = "Subnet1"
+    Starttime= "14:10"
 
   }
 }
+//resource "aws_subnet" "" {
+//  cidr_block = ""
+//  vpc_id = aws_vpc.main.id
+//}
+//resource "aws_subnet" "" {
+//  cidr_block = ""
+//  vpc_id = aws_vpc.main.id
+//}
