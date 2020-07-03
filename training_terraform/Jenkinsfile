@@ -31,7 +31,7 @@ pipeline {
                 }
             }
         }
-        stage ('Destroy Infra'){
+        stage ('Destroy Infra') {
             when {
                 expression { params.DESTROY == true }
              }
