@@ -5,41 +5,17 @@ pipeline {
   	}
 	parameters {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
-        booleanParam(name: 'DESTROY', defaultValue: false, description: 'Toggle this value')
     }	
 	stages{
 		stage ('Preparation deploy Infra'){
 			when {
 				expression { params.DEPLOY == true }
-				expression { params.DESTROY == true }
+				// expression { params.DESTROY == true }
 			}
 			steps {
 				sh "cd training_terraform && ls && terraform init -plugin-dir=/tmp/terraform_plugin && terraform plan"
 			}
 		}
-	    stage('Approve destroy') {
-            when {
-                expression { params.DESTROY == true }
-            }
-            steps {
-                timeout(time: 7, unit: 'DAYS') {
-                    script {
-                        env.APPROVE_DESTROY = input(message: 'Approve destroy',
-                        parameters: [booleanParam(defaultValue: true,
-                        description: 'So you want to delete this?', name: 'Approved Destroy')])
-                    }
-                }
-            }
-        }
-        stage('Destroy Infra') {
-            when {
-                expression { params.DESTROY == true }
-                environment name: 'APPROVE_DESTROY', value: "true"
-             }
-            steps {
-                sh "cd training_terraform && terraform destroy -auto-approve"
-            }
-        }
 		stage('Approve deployment') {
 			when {
 				expression { params.DEPLOY == true }
