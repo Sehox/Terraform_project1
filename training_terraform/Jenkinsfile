@@ -39,7 +39,6 @@ pipeline {
             steps {
                 sh "cd training_terraform && terraform destroy -auto-approve"
             }
-        }
 		stage('Approve deployment') {
 			when {
 				expression { params.DEPLOY == true }
