@@ -34,10 +34,8 @@ pipeline {
         stage('Destroy Infra') {
             when {
                 expression { params.DESTROY == true }
-             }
-            when {
                 environment name: 'APPROVE_DESTROY', value: "true"
-            }
+             }
             steps {
                 sh "cd training_terraform && terraform destroy -auto-approve"
             }
