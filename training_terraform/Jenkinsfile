@@ -31,7 +31,7 @@ pipeline {
                 }
             }
         }
-        stage ('Destroy Infra') {
+        stage('Destroy Infra') {
             when {
                 expression { params.DESTROY == true }
              }
@@ -56,7 +56,7 @@ pipeline {
 				}
 			}
 		}
-		stage ('Deploy Infra'){
+		stage('Deploy Infra'){
 			when {
         		environment name: 'APPROVE_DEPLOY', value: "true"
 			}
