@@ -8,6 +8,7 @@ resource "aws_vpc" "main" {
   tags = {
     Name = "Main"
     Location = "Toulouse"
+    Name2 = "Ahmed"
   }
 }
 resource "aws_subnet" "subnets" {
