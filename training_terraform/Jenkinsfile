@@ -7,7 +7,7 @@ pipeline {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
     }	
 	stages{
-		stage ('Preparation deploy Infra'){
+		stage ('Preparation deploy Infra') {
 			when {
 				expression { params.DEPLOY == true }
 				// expression { params.DESTROY == true }
@@ -30,7 +30,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Deploy Infra'){
+		stage('Deploy Infra') {
 			when {
         		environment name: 'APPROVE_DEPLOY', value: "true"
 			}
