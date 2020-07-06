@@ -1,8 +1,5 @@
 pipeline {
 	agent any
-	environment{
-		ENV = 'dev'
-  	}
 	parameters {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
     }	
