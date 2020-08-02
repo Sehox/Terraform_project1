@@ -8,11 +8,11 @@ pipeline {
 			steps {
 				script {
 					// Uploads file via master node and stases it for other nodes to access
-					def inputFile = input message: 'Upload file', parameters: [file(name: "data.zip")]
-					new hudson.FilePath(new File("${workspace}/data.zip")).copyFrom(inputFile)
+					def inputFile = input message: 'Upload file', parameters: [file(name: "data.txt")]
+					new hudson.FilePath(new File("${workspace}/data.txt")).copyFrom(inputFile)
 					inputFile.delete()
 				}
-				stash name: 'data.zip' , includes: "data.zip"
+				stash name: 'data.txt' , includes: "data.txt"
 			}
 		}
 		stage ('Preparation deploy Infra') {
