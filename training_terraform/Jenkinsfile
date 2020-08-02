@@ -4,9 +4,17 @@ pipeline {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
     }	
 	stages{
-		stage("upload") {
-		def inputFile = input message: 'Upload file', parameters: [file(name: "$workspace/data.zip")]
-        }
+		stage('Upload Key') {
+			steps {
+				script {
+					// Uploads file via master node and stases it for other nodes to access
+					def inputFile = input message: 'Upload file', parameters: [file(name: "key.p12")]
+					new hudson.FilePath(new File("${workspace}/key.p12")).copyFrom(inputFile)
+					inputFile.delete()
+				}
+				stash name: 'key.p12' , includes: "key.p12"
+			}
+		}
 		stage ('Preparation deploy Infra') {
 			when {
 				expression { params.DEPLOY == true }
