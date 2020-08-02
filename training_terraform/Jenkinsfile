@@ -1,11 +1,11 @@
+library "jenkinsci-unstashParam-library"
+node {
+	def file_in_workspace = unstashParam "file"
+	sh "cat ${file_in_workspace}"
+}
 
 pipeline {
 	agent any
-	library "jenkinsci-unstashParam-library"
-	node {
-		def file_in_workspace = unstashParam "file"
-		sh "cat ${file_in_workspace}"
-	}
 	parameters {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
     }	
