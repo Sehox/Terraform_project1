@@ -1,7 +1,8 @@
 pipeline {
 	agent any
 	environment{
-		ENV = 'dev'
+		ENV = 'int'
+		PROJECT = 'project1'
   	}
 	parameters {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Toggle this value')
@@ -12,7 +13,7 @@ pipeline {
 				expression { params.DEPLOY == true }
 			}
 			steps {
-				sh "cd environments/${env.ENV} && ls && terraform init -plugin-dir=/tmp/terraform_plugin && terraform plan"
+				sh "cd environments/${env.PROJECT}-${env.ENV} && ls && terraform init -plugin-dir=/tmp/terraform_plugin && terraform plan"
 			}
 		}
 		stage('Approve deployment') {
