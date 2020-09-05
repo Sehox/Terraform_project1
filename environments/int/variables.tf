@@ -8,10 +8,16 @@ variable "availability_zones" {
   description = "List of availability zones"
 }
 
-variable "vpc_cidr_block" {
+variable "vpc_id" {
   type        = string
-  description = "VPC CIDR block"
+  description = "VPC ID"
 }
+
+variable "private_subnet_id" {
+  type        = list(string)
+  description = "List private subnet id"
+}
+
 
 variable "namespace" {
   type        = string

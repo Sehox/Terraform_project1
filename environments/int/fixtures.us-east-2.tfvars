@@ -1,6 +1,6 @@
-region = "us-east-2"
+region = "eu-west-1"
 
-availability_zones = ["us-east-2a", "us-east-2b"]
+availability_zones = ["eu-west-1a", "eu-west-1b"]
 
 namespace = "eg"
 
@@ -9,6 +9,12 @@ stage = "test"
 name = "alb"
 
 vpc_cidr_block = "172.16.0.0/16"
+
+vpc_id = "vpc-0ba5de3178254a817"
+
+private_subnet_id = ["subnet-04622a0cb9c284241", "subnet-0542f301e192909b5"]
+
+security_group_id = ["", ""]
 
 internal = false
 
@@ -20,7 +26,7 @@ access_logs_enabled = true
 
 alb_access_logs_s3_bucket_force_destroy = true
 
-access_logs_region = "us-east-2"
+access_logs_region = "eu-west-1"
 
 cross_zone_load_balancing_enabled = false
 
