@@ -3,11 +3,6 @@ variable "region" {
   description = "AWS Region for S3 bucket"
 }
 
-variable "availability_zones" {
-  type        = list(string)
-  description = "List of availability zones"
-}
-
 variable "vpc_id" {
   type        = string
   description = "VPC ID"
