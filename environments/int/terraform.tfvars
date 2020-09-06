@@ -2,7 +2,7 @@ region = "eu-west-1"
 
 availability_zones = ["eu-west-1a", "eu-west-1b"]
 
-namespace = "eg"
+namespace = "eg854"
 
 stage = "test"
 
@@ -54,7 +54,7 @@ health_check_matcher = "200-399"
 
 target_group_port = 80
 
-target_group_target_type = "ip"
+target_group_target_type = "lambda"
 
 stickiness = {
   cookie_duration = 60
