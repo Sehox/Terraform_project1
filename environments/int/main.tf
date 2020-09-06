@@ -10,7 +10,7 @@ module "alb" {
   attributes                              = var.attributes
   delimiter                               = var.delimiter
   vpc_id                                  = var.vpc_id
- ### security_group_ids                      = var.security_group_id
+  security_group_ids                      = var.security_group_id
   subnet_ids                              = [data.aws_subnet.private_subnet_1.id, data.aws_subnet.private_subnet_2.id]
   internal                                = var.internal
   http_enabled                            = var.http_enabled
