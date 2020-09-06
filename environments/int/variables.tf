@@ -8,10 +8,6 @@ variable "vpc_id" {
   description = "VPC ID"
 }
 
-variable "private_subnet_id" {
-  type        = list(string)
-  description = "List private subnet id"
-}
 
 
 variable "namespace" {
@@ -147,10 +143,3 @@ variable "target_group_target_type" {
   description = "The type (`instance`, `ip` or `lambda`) of targets that can be registered with the target group"
 }
 
-variable "stickiness" {
-  type = object({
-    cookie_duration = number
-    enabled         = bool
-  })
-  description = "Target group sticky configuration"
-}
