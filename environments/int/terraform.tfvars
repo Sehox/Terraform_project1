@@ -8,6 +8,8 @@ stage = "rdd"
 
 name = "alb"
 
+name_alb = "alb2"
+
 environment = "int"
 
 attributes = ["ipsec", "att2"]

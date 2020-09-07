@@ -24,6 +24,10 @@ variable "name" {
   type        = string
   description = "Name of the application"
 }
+variable "name_alb" {
+  type        = string
+  description = "Name of the application"
+}
 
 variable "delimiter" {
   type        = string

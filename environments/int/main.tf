@@ -6,7 +6,7 @@ module "alb" {
   source                                  = "../../modules/alb"
   namespace                               = var.namespace
   stage                                   = var.stage
-  name                                    = var.name
+  name                                    = var.name_alb
   attributes                              = var.attributes
   delimiter                               = var.delimiter
   vpc_id                                  = var.vpc_id
