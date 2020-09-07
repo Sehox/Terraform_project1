@@ -10,7 +10,7 @@ name = "alb"
 
 environment = "int"
 
-attributes = "ipsec"
+attributes = ["ipsec", "att2"]
 
 vpc_cidr_block = "172.16.0.0/16"
 
