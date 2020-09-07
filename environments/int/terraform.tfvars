@@ -2,11 +2,15 @@ region = "eu-west-1"
 
 availability_zones = ["eu-west-1a", "eu-west-1b"]
 
-namespace = "eg854"
+namespace = "2j43"
 
-stage = "test"
+stage = "rdd"
 
 name = "alb"
+
+environment = "int"
+
+attributes = "ipsec"
 
 vpc_cidr_block = "172.16.0.0/16"
 
