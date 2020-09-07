@@ -192,6 +192,7 @@ resource "aws_lb_listener" "https" {
 ################ aws alb listneter rule  forward to /api/* ####
 
 resource "aws_lb_listener_rule" "http_forward_api_rule" {
+  count = length(aws_lb_listener.http_forward)
   listener_arn = aws_lb_listener.http_forward[count.index].arn
   priority     = 100
 
