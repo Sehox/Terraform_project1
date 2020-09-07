@@ -8,8 +8,6 @@ variable "vpc_id" {
   description = "VPC ID"
 }
 
-
-
 variable "namespace" {
   type        = string
   description = "Namespace (e.g. `eg` or `cp`)"

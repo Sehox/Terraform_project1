@@ -1,5 +1,7 @@
 module "default_label" {
-  source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
+  # source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
+  source      = "../null-label"
+
   attributes  = var.attributes
   delimiter   = var.delimiter
   name        = var.name
@@ -48,7 +50,8 @@ resource "aws_security_group_rule" "https_ingress" {
 }
 
 module "access_logs" {
-  source                             = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=tags/0.7.0"
+  # source                             = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=tags/0.7.0"
+  source                             = "../null-label"
   enabled                            = var.access_logs_enabled
   name                               = var.name
   namespace                          = var.namespace
@@ -93,7 +96,8 @@ resource "aws_lb" "default" {
 }
 
 module "default_target_group_label" {
-  source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
+  # source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
+  source      = "../null-label"
   attributes  = concat(var.attributes, ["default"])
   delimiter   = var.delimiter
   name        = var.name

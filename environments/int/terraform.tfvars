@@ -12,8 +12,6 @@ name_alb = "alb2"
 
 environment = "int"
 
-attributes = ["ipsec"]
-
 vpc_cidr_block = "172.16.0.0/16"
 
 vpc_id = "vpc-0ba5de3178254a817"

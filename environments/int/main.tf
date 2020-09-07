@@ -8,7 +8,7 @@ module "alb" {
   stage                                   = var.stage
   name                                    = var.name_alb
   environment                             = var.environment
-  attributes                              = var.attributes
+  attributes                              = compact(concat(var.attributes, ["ipsec2"]))
   delimiter                               = var.delimiter
   vpc_id                                  = var.vpc_id
   #security_group_ids                      = var.security_group_id
