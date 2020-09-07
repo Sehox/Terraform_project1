@@ -188,3 +188,27 @@ resource "aws_lb_listener" "https" {
     type             = "forward"
   }
 }
+
+################ aws alb listneter rule  forward to /api/* ####
+
+resource "aws_lb_listener_rule" "http_forward_api_rule" {
+  listener_arn = aws_lb_listener.http_forward.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.default.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/api/*"]
+    }
+  }
+
+  # condition {
+  #   host_header {
+  #     values = ["example.com"]
+  #   }
+  # }
+}
