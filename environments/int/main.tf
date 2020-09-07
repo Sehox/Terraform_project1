@@ -7,6 +7,7 @@ module "alb" {
   namespace                               = var.namespace
   stage                                   = var.stage
   name                                    = var.name_alb
+  environment                             = var.environment
   attributes                              = var.attributes
   delimiter                               = var.delimiter
   vpc_id                                  = var.vpc_id

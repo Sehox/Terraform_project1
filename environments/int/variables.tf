@@ -19,6 +19,10 @@ variable "stage" {
   type        = string
   description = "Stage (e.g. `prod`, `dev`, `staging`)"
 }
+variable "environment" {
+  type        = string
+  description = "environment (int dev prod)"
+}
 
 variable "name" {
   type        = string
