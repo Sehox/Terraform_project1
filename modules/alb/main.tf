@@ -88,11 +88,11 @@ resource "aws_lb" "default" {
   ip_address_type                  = var.ip_address_type
   enable_deletion_protection       = var.deletion_protection_enabled
 
-  access_logs {
-    bucket  = module.access_logs.bucket_id
-    prefix  = var.access_logs_prefix
-    enabled = var.access_logs_enabled
-  }
+  # access_logs {
+  #   bucket  = module.access_logs.bucket_id
+  #   prefix  = var.access_logs_prefix
+  #   enabled = var.access_logs_enabled
+  # }
 }
 
 module "default_target_group_label" {
