@@ -11,3 +11,7 @@ data "aws_subnet" "private_subnet_2" {
   }
 }
 
+data "aws_lambda_function" "lambda_1" {
+  function_name = "list_ASH"
+}
+

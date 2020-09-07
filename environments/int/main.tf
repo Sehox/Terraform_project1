@@ -36,3 +36,20 @@ module "alb" {
   stickiness                              = var.stickiness
   tags                                    = var.tags
 }
+data "aws_lambda_function" "lambda_1" {
+  function_name = "list_ASH"
+}
+
+resource "aws_lambda_permission" "with_lb" {
+  statement_id  = "AllowExecutionFromlb"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.test.arn
+  principal     = "elasticloadbalancing.amazonaws.com"
+  source_arn    = module.alb.default_target_group_arn
+}
+
+resource "aws_lb_target_group_attachment" "attach_lambda_alb" {
+  target_group_arn = module.alb.default_target_group_arn
+  target_id        = data.aws_lambda_function.lambda_1.arn
+  depends_on       = [aws_lambda_permission.with_lb]
+}
