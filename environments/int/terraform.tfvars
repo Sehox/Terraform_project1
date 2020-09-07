@@ -26,7 +26,7 @@ http_enabled = true
 
 http_redirect = false
 
-access_logs_enabled = true
+access_logs_enabled = false
 
 alb_access_logs_s3_bucket_force_destroy = true
 
