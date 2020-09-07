@@ -36,14 +36,11 @@ module "alb" {
   stickiness                              = var.stickiness
   tags                                    = var.tags
 }
-data "aws_lambda_function" "lambda_1" {
-  function_name = "list_ASH"
-}
 
 resource "aws_lambda_permission" "with_lb" {
   statement_id  = "AllowExecutionFromlb"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.test.arn
+  function_name = data.aws_lambda_function.lambda_1.arn
   principal     = "elasticloadbalancing.amazonaws.com"
   source_arn    = module.alb.default_target_group_arn
 }
