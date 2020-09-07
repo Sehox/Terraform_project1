@@ -207,9 +207,9 @@ resource "aws_lb_listener_rule" "http_forward_api_rule" {
     }
   }
 
-  # condition {
-  #   host_header {
-  #     values = ["example.com"]
-  #   }
-  # }
+  condition {
+    host_header {
+      values = ["example.com"]
+    }
+  }
 }
