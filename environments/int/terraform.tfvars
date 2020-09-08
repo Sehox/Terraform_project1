@@ -8,7 +8,11 @@ stage = "rdd"
 
 name = "alb"
 
-name_alb = "alb2"
+alb_name = "alb2"
+
+project1_int_private_hosted_zone_dns_name = "private_dns"
+
+
 
 environment = "int"
 

@@ -6,7 +6,7 @@ module "alb" {
   source                                  = "../../modules/alb"
   namespace                               = var.namespace
   stage                                   = var.stage
-  name                                    = var.name_alb
+  name                                    = var.alb_name 
   environment                             = var.environment
   attributes                              = compact(concat(var.attributes, ["ipsec2"]))
   delimiter                               = var.delimiter
@@ -50,3 +50,17 @@ resource "aws_lb_target_group_attachment" "attach_lambda_alb" {
   target_id        = data.aws_lambda_function.lambda_1.arn
   depends_on       = [aws_lambda_permission.with_lb]
 }
+
+
+module "route53_private_zone_with_alb_alias" {
+  source             = "./modules/route53"
+  name               = var.project1_int_private_hosted_zone_dns_name
+  vpc_id             = var.vpc_id
+  aliases            = ["test-alias"]
+  target_dns_name    = module.alb.alb_dns_name
+  target_zone_id     = module.module.alb.alb_zone_id
+  depends_on         = module.alb
+
+  tags               = var.tags
+}
+

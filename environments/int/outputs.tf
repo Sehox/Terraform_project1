@@ -47,3 +47,14 @@ output "listener_arns" {
 #   description = "The S3 bucket ID for access logs"
 #   value       = module.alb.access_logs_bucket_id
 # }
+
+output "hostnames" {
+  value       = module.route53_private_zone_with_alb_alias.fqdn
+  description = "List of DNS records"
+}
+
+
+output "alb_alias_name" {
+  value       = module.route53_private_zone_with_alb_alias.name
+  description = "List of DNS records names"
+}
