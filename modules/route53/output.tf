@@ -15,7 +15,7 @@ output "private_alb_hosted_zone_id" {
 }
 
 output "private_alb_hosted_zone_id" {
-    value       = aws_route53_zone.private.name_servers
+    value       = aws_route53_zone.private.*.name_servers
     description = "private_alb_hosted_zone name_servers"
 }
 
