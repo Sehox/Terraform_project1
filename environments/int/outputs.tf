@@ -58,3 +58,9 @@ output "alb_alias_name" {
   value       = module.route53_private_zone_with_alb_alias.name
   description = "List of DNS records names"
 }
+
+output "private_alb_hosted_zone_id" {
+    value       = aws_route53_zone.private.zone_id
+    value       = module.ro.route53_private_zone_with_alb_alias.zone_id
+    description = "private_alb_hosted_zone ID"
+}

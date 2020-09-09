@@ -44,6 +44,20 @@ variable "vpc_id" {
   description = "VPC ID to associate with ALB"
 }
 
+variable "vpc_endpoint_ids" {
+  type        = string
+  description = "private endpoint ids for api gateway"
+}
+
+
+
+
+
+
+
+
+
+
 
 ############################### Variables for route53 record alias ###########################
 variable "aliases" {
