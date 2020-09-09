@@ -15,7 +15,7 @@ module "default_label" {
 
 resource "aws_route53_zone" "private" {
   name               = module.default_label.id
-  attributes         = compact(concat(var.attributes, ["private", "zone"]))
+  # attributes         = compact(concat(var.attributes, ["private", "zone"]))
   tags               = module.default_label.tags
 
   vpc {
