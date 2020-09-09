@@ -59,7 +59,7 @@ module "route53_private_zone_with_alb_alias" {
   aliases            = ["test-alias"]
   target_dns_name    = module.alb.alb_dns_name
   target_zone_id     = module.module.alb.alb_zone_id
-  depends_on         = [module.alb]
+  # depends_on         = ['module.alb']
 
   tags               = var.tags
 }
