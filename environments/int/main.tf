@@ -55,6 +55,7 @@ resource "aws_lb_target_group_attachment" "attach_lambda_alb" {
 module "route53_private_zone_with_alb_alias" {
   source             = "../../modules/route53"
   name               = var.project1_int_private_hosted_zone_dns_name
+  attributes         = compact(concat(var.attributes, ["alb", "alias"]))
   vpc_id             = var.vpc_id
   aliases            = ["test-alias"]
   target_dns_name    = module.alb.alb_dns_name

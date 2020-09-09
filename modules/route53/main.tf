@@ -28,9 +28,9 @@ resource "aws_route53_zone_association" "secondary" {
 }
 
 resource "aws_route53_record" "route53_record_alb_alias" {
-  zone_id    = aws_route53_zone.private_hosted_zone.zone_id
+  zone_id    = aws_route53_zone.private.zone_id
   name       = module.default_label.id
-  attributes = compact(concat(var.attributes, ["alb", "alias"]))
+  # attributes = compact(concat(var.attributes, ["alb", "alias"]))
   type       = "A"
 
   alias {
