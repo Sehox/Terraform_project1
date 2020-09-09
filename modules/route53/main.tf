@@ -22,10 +22,10 @@ resource "aws_route53_zone" "private" {
     vpc_id = var.vpc_id
   }
 }
-resource "aws_route53_zone_association" "secondary" {
-  zone_id = aws_route53_zone.private.zone_id
-  vpc_id  = var.vpc_id
-}
+# resource "aws_route53_zone_association" "secondary" {
+#   zone_id = aws_route53_zone.private.zone_id
+#   vpc_id  = var.vpc_id
+# }
 
 resource "aws_route53_record" "route53_record_alb_alias" {
   zone_id    = aws_route53_zone.private.zone_id
