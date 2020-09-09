@@ -10,7 +10,7 @@ name = "alb"
 
 alb_name = "alb2"
 
-project1_int_private_hosted_zone_dns_name = "private_dns"
+project1_int_private_hosted_zone_dns_name = "private-dns"
 
 
 
