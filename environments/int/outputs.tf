@@ -49,18 +49,18 @@ output "listener_arns" {
 # }
 
 output "hostnames" {
-  value       = module.route53_private_zone_with_alb_alias.fqdn
+  value       = module.route53_private_zone_with_alb_alias.hostnames
   description = "List of DNS records"
 }
 
 
 output "alb_alias_name" {
-  value       = module.route53_private_zone_with_alb_alias.name
+  value       = module.route53_private_zone_with_alb_alias.alb_alias_name
   description = "List of DNS records names"
 }
 
 output "private_alb_hosted_zone_id" {
     # value       = aws_route53_zone.private.zone_id
-    value       = module.route53_private_zone_with_alb_alias.zone_id
+    value       = module.route53_private_zone_with_alb_alias.private_alb_hosted_zone_id
     description = "private_alb_hosted_zone ID"
 }

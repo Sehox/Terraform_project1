@@ -26,10 +26,11 @@ variable "name" {
   type        = string
   description = "Name of the application"
 }
-variable "name_alb" {
+variable "alb_name" {
   type        = string
   description = "Name of the application"
 }
+
 
 variable "delimiter" {
   type        = string
@@ -155,4 +156,10 @@ variable "stickiness" {
     enabled         = bool
   })
   description = "Target group sticky configuration"
+}
+
+
+variable "project1_int_private_hosted_zone_dns_name" {
+  type        = string
+  description = "project1_int_private_hosted_zone_dns_name"
 }
