@@ -1,4 +1,5 @@
 pipeline {
+	agent any
 	environment{
 		ENV = 'dev'
   	}
